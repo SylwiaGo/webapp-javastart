@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title>Add new category - RGBuy</title>
+</head>
+<body>
+<main class="main-content" layout:fragment="content">
+  <h2 class="list-heading">Add a new category</h2>
+  <form action="#" th:action="@{/admin/add-category}" method="post" class="mc-form" th:object="${category}">
+    <label for="categoryName">Name</label>
+    <input type="text" id="categoryName" placeholder="e.g. Monitors" th:field="*{name}">
+    <label for="categoryShortDescription">Description</label>
+    <textarea id="categoryShortDescription" rows="5" th:field="*{description}"></textarea>
+    <button type="submit">Add</button>
+  </form>
+</main>
+</body>
+</html>

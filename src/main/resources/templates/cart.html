@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title th:text="|Shopping Cart - RGBuy|">Shopping Cart - RGBuy</title>
+</head>
+<body>
+<div class="container">
+  <main class="main-content" layout:fragment="content">
+      <p class="notification-bar" th:if="${notification}" th:text="${notification}">
+    <section class="product-section2">
+      <h1 class="product-summary-name">Shopping Cart2222</h1>
+      <ul class="product-list" th:remove="all-but-first">
+        <li class="product-list-item" th:each="item: ${cartItems}">
+          <a href="#" th:href="@{|/product/${item.getProduct_id()}|}">
+<!--            <img src="../static/img/placeholder.png"-->
+<!--                 th:src="${product.image ne null} ? @{|/img/${product.image}|} : @{/img/placeholder.png}"-->
+<!--                 alt="product name"-->
+<!--                 class="movie-list-item-image">-->
+          </a>
+          <div class="product-list-item-card">
+            <div class="product-list-item-content">
+              <h3 class="product-list-item-title">
+                <a href="#" th:href="@{|/product/${item.getProduct_id()}|}" th:text="${item.getProduct_id().name}">Product name</a>
+              </h3>
+              <h4 th:href="@{|/product/${item.getProduct_id()}|}" th:text="${item.getProduct_id().producer}">producer</h4>
+              <p th:href="@{|/product/${item.getProduct_id().id}|}" th:text="${item.getProduct_id().shortDescription}">TODO krótki opis w BD?</p>
+                                      <p th:text="${item.getProduct_id().price} + €">cena</p>
+            </div>
+            <div class="product-list-item-content">
+                <input id="quantity" type="number" class="mc-form" th:min="0">
+                <h4 th:text="x+${item.getProduct_id().price} + €">cena</h4>
+                <h3 th:text=" SUBTOTAL">suma</h3>
+            </div>
+              <div class="product-list-item-content">
+                  <form action="#" th:action="@{|/cart/remove/${item.getProduct_id().id}|}" method="post" class="mc-form">
+                      <button type="submit"><i class="fas fa-trash logo" style="font-size: 4em;" ></i></button>
+                  </form>
+
+              </div>
+          </div>
+        </li>
+      </ul>
+        <div>
+
+            <h2>TOTAL</h2>
+            <a href="#" th:href="@{/}">
+                <h2>BUY</h2>
+            </a>
+
+        </div>
+
+    </section>
+  </main>
+</div>
+</body>
+</html>

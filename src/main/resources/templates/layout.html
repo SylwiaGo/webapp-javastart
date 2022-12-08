@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RGBuy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <script defer src="../static/scripts.js" th:src="@{/scripts/common.js}"></script>
+  <link rel="stylesheet" href="../static/styles.css" th:href="@{/styles/main.css}">
+</head>
+<body>
+<div class="container">
+  <ul class="menu">
+    <li class="menu-logo-container">
+      <a href="#" th:href="@{/}">
+        <i class="fas fa-plug logo"></i> RGBuy
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="#" th:href="@{/categories}">Categories</a>
+    </li>
+    <li class="menu-item">
+      <a href="#" th:href="@{/contact}">Contact</a>
+    </li>
+<!--    tylko uzytkownik z rola admin widzi link admin-->
+    <li class="menu-item" sec:authorize="hasAnyRole('ADMIN')">
+      <a href="#" th:href="@{/admin}">Admin</a>
+    </li>
+    <li class="menu-item">
+      <a href="#" th:href="@{/cart}">
+        <i class="fas fa-cart-shopping logo"></i> Cart
+      </a>
+    </li>
+    <li class="menu-item">
+    <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">Sign in</a>
+    <a href="#" th:href="@{/logout}" sec:authorize="isAuthenticated()">Sign out</a>
+    </li>
+  </ul>
+  <header class="jumbotron">
+    <h1 class="jumbotron-header">RGBuy</h1>
+    <p class="jumbotron-description">
+      Welcome to our shop
+    </p>
+  </header>
+  <main class="main-content" layout:fragment="content">
+  </main>
+  <footer class="footer">
+    <i class="fas fa-plug logo"></i> RGBuy  || Project 2022
+  </footer>
+</div>
+</body>
+</html>

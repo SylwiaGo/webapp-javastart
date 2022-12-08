@@ -1,0 +1,11 @@
+insert into category (name, description) values ('Computers', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit');
+insert into category (name, description) values ('Processors', 'Sed luctus eros sit amet massa facilisis, et pellentesque libero convallis');
+insert into category (name, description) values ('Mainboards', 'Integer pretium, ligula ac iaculis blandit, massa magna finibus ipsum, at faucibus nibh leo pharetra lectus');
+insert into category (name, description) values ('Graphic cards', 'Quisque libero mauris, vehicula id placerat ac, maximus vel nibh');
+insert into category (name, description) values ('Memory', 'Maecenas ullamcorper metus metus, nec finibus metus suscipit ac');
+insert into category (name, description) values ('Cooling', 'Donec ligula tellus, condimentum non eros vitae, rhoncus rhoncus odio');
+insert into category (name, description) values ('Cases', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit');
+insert into category (name, description) values ('Keyboards', 'Integer sapien urna, lacinia et magna ut, maximus rhoncus diam');
+insert into category (name, description) values ('Mouses', 'Ut tempor, nunc eget vulputate tristique, nisl leo pulvinar mi, ut porttitor nulla mi a arcu');
+insert into category (name, description) values ('Power Supplies', 'Nulla semper sodales nunc sed sodales');
+insert into category (name, description) values ('RGB Strips', ' Nulla ornare diam sit amet ornare elementum');

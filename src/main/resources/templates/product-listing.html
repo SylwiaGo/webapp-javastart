@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<body>
+<div class="container">
+    <main class="main-content" layout:fragment="content">
+        <h2 class="list-heading" th:text="${heading}">Promoted products</h2>
+        <p class="list-description" th:text="${description}">Promoted products description</p>
+        <ul class="product-list" th:remove="all-but-first">
+            <li class="product-list-item" th:each="product: ${products}">
+                <a href="#" th:href="@{|/product/${product.id}|}">
+                    <img src="../static/img/placeholder.png"
+                         th:src="${product.image ne null} ? @{|/img/${product.image}|} : @{/img/placeholder.png}"
+                         alt="product name"
+                         class="movie-list-item-image">
+                </a>
+                <div class="product-list-item-card">
+                    <div class="product-list-item-content">
+                        <h3 class="product-list-item-title">
+                            <a href="#" th:href="@{|/product/${product.id}|}" th:text="${product.name}">Product name</a>
+                        </h3>
+                        <h4 th:href="@{|/product/${product.id}|}" th:text="${product.producer}">producer</h4>
+                        <p th:href="@{|/product/${product.id}|}" th:text="${product.shortDescription}">TODO krótki opis w BD?</p>
+<!--                        <p th:text="${product.price}">1999</p>-->
+                    </div>
+                    <div class="product-list-item-rating">
+                        <i class="fa fa-eur"></i>
+                        <span th:text="${product.price}">
+                        </span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </main>
+</div>
+</body>
+</html>

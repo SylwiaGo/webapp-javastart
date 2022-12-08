@@ -1,0 +1,1 @@
+INSERT INTO cart (user_id, product_id, quantity) values (1, 1, 1);

@@ -1,0 +1,20 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: s.bergmann.spam@gmail.com
+    password: dwhwrdhkjsxudpuk
+    properties:
+      mail:
+        debug: true
+      transport:
+        protocol: smtp
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+          required: true
+

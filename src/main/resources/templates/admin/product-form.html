@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title>Add a new product - RGBuy</title>
+</head>
+<body>
+<main class="main-content" layout:fragment="content">
+  <h2 class="list-heading">Add a new product</h2>
+  <form action="#" th:action="@{/admin/add-product}" method="post" enctype="multipart/form-data" class="mc-form" th:object="${product}">
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Product name" th:field="*{name}" required>
+    <label for="producer">Producer</label>
+    <input type="text" id="producer" placeholder="Producer" th:field="*{producer}">
+    <label for="price">Price</label>
+    <input type="number" step=0.01 id="price" placeholder="199.99" th:field="*{price}">
+    <label for="category">Category</label>
+    <select id="category" th:field="*{category}" required>
+      <option value="" hidden>Choose a category</option>
+      <option th:each="category: ${categories}" th:value="${category.name}" th:text="${category.name}"></option>
+    </select>
+    <label for="promoted">Promoted on the home page?</label>
+    <input id="promoted" type="checkbox" th:field="*{promoted}">
+    <label for="image">Image</label>
+    <input type="file" id="image" th:field="*{image}" accept="image/png, image/jpg, image/jpeg">
+    <label for="shortDescription">Short description</label>
+    <textarea id="shortDescription" rows="5" th:field="*{shortDescription}"></textarea>
+    <label for="description">Description</label>
+    <textarea id="description" rows="10" th:field="*{description}"></textarea>
+    <button type="submit">Add</button>
+  </form>
+</main>
+</body>
+</html>

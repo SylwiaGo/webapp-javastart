@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title th:text="|${product.name} - RGBuy|">Product - RGBuy</title>
+</head>
+<body>
+<div class="container">
+  <main class="main-content" layout:fragment="content">
+    <p class="notification-bar" th:if="${notification}" th:text="${notification}">
+    <section class="product-section2">
+      <h1 class="product-summary-name" th:text="${product.name}">Product</h1>
+      <p class="product-summary-producer" th:text="${product.producer}">producer</p>
+      <p class="product-summary-item">Category: <a href="#"
+                                                   th:href="@{|/category/${product.category}|}"
+                                                   th:text="${product.category}">CPU</a></p>
+    </section>
+    <section class="product">
+      <div class="product-summary">
+        <img src="../static/img/placeholder.png"
+             th:src="${product.image ne null} ? @{|/img/${product.image}|} : @{/img/placeholder.png}"
+             alt="image"
+             th:alt="${product.name}"/>
+      </div>
+      <!-- Rating -->
+      <div class="product-rating-container">
+        <h2 class="product-section-heading" th:text="${product.price} + €">Price: 199€</h2>
+        <label for="quantity"></label>
+        <input id="quantity" type="number" class="mc-form" th:min="0">
+
+        <form action="#" th:action="@{|/cart/add/${product.id}|}" method="post" class="mc-form">
+          <button type="submit"><i class="fas fa-cart-plus logo" style="font-size: 4em;" ></i></button>
+        </form>
+
+
+        <div>
+
+        </div>
+
+      </div>
+    </section>
+<!--    &lt;!&ndash; trailer &ndash;&gt;-->
+<!--    <section class="product-trailer-container movie-section">-->
+<!--      <h2 class="movie-section-heading">Trailer</h2>-->
+<!--      <iframe width="560" height="315" class="movie-trailer"-->
+<!--              src="https://www.youtube.com/embed/V75dMMIW2B4"-->
+<!--              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+<!--    </section>-->
+    <!-- opis -->
+    <section class="product-section">
+      <h2 class="product-section-heading">Description</h2>
+      <p class="product-summary-item" th:text="${product.description}">description</p>
+    </section>
+  </main>
+</div>
+</body>
+</html>

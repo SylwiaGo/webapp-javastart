@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - RBUy</title>
+</head>
+<body>
+<main class="main-content" layout:fragment="content">
+  <p class="notification-bar" th:if="${notification}" th:text="${notification}">
+  <h2 class="list-heading">Admin Dashboard</h2>
+  <ul class="list-border">
+    <li><a href="#" th:href="@{/admin/add-product}">Add Product</a></li>
+    <li><a href="#" th:href="@{/admin/add-category}">Add Category</a></li>
+  </ul>
+</main>
+</body>
+</html>

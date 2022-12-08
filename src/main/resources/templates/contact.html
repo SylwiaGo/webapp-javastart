@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title>Contact - RGBuy</title>
+</head>
+<body>
+<main class="main-content" layout:fragment="content">
+  <h2 class="list-heading">Send us a message</h2>
+  <form action="#" th:action="@{/send}" method="post" enctype="multipart/form-data" class="mc-form" th:object="${message}">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" placeholder="Your Name" th:field="*{name}" required>
+    <label for="email">Your e-mail</label>
+    <input type="text" id="email" placeholder="e-mail" th:field="*{email}">
+    <label for="message">Your message</label>
+    <textarea id="message" rows="10" th:field="*{text}"></textarea>
+    <button type="submit">Send</button>
+  </form>
+</main>
+</body>
+</html>

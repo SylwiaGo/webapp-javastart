@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Registration - RGBuy</title>
+</head>
+<body>
+<main class="main-content" layout:fragment="content">
+    <h2 class="list-heading">Sign up</h2>
+    <form action="#" th:action="@{/registration}" method="post" class="mc-form" th:object="${user}">
+        <label for="email">email address</label>
+        <input id="email" type="email" placeholder="baltazar@gabka.pl" th:field="*{email}">
+        <label for="password">Password</label>
+        <input id="password" placeholder="tylko_nie_1234" type="password" th:field="*{password}">
+        <label for="firstName">First Name</label>
+        <input id="firstName" placeholder="Baltazar" type="text" th:field="*{firstName}">
+        <label for="lastName">Last Name</label>
+        <input id="lastName" placeholder="Gąbka" type="text" th:field="*{lastName}">
+        <label for="street">Street</label>
+        <input id="street" placeholder="ul. Bajkowa" type="text" th:field="*{street}">
+        <label for="houseNumber">House Number</label>
+        <input id="houseNumber" placeholder="2" type="text" th:field="*{houseNumber}">
+        <label for="city">City</label>
+        <input id="city" placeholder="Bajkowa Góra" type="text" th:field="*{city}">
+        <label for="zip">Zip Code</label>
+        <input id="zip" placeholder="22001" type="text" th:field="*{zip}">
+        <img src="/captcha" width="130px" height="50px"/>
+        <input placeholder="captcha" type="text" th:field="${captcha}">
+        <button type="submit">Complete registration</button>
+    </form>
+</main>
+</body>
+</html>

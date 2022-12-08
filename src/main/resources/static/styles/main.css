@@ -1,0 +1,358 @@
+/*CSS reset*/
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+/*Zmiana domyślnego fontu*/
+body {
+    font-family: 'Roboto', sans-serif;
+}
+/*Ustawienie koloru odnośników i usunięcie podkreśleń*/
+a {
+    text-decoration: none;
+    color: #ae74ec;
+}
+/*Kolor tła w głównym kontenerze i ustawienie elastycznego rozkładu
+Elementy będą ustawiane jeden pod drugim
+*/
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #424242;
+}
+/*Główna sekcja powinna być skalowana wraz z rozciąganiem okna przeglądarki
+i powinna zajmować większość dostępnej przestrzeni
+*/
+.main-content {
+    flex: 1;
+}
+
+/*MENU START*/
+/*Kolor logotypu i przycisku rozwijającego menu*/
+.logo,
+#toggle-icon {
+    color: #ae74ec;
+}
+/*Ustawienia dla responsywnego menu*/
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+/*Elementy menu domyślnie są ukryte*/
+.menu-item {
+    width: 100%;
+    padding: 16px;
+    border-bottom: 1px #6d6d6d solid;
+    text-align: center;
+    display: none;
+}
+/*Po wciśnięciu przycisku elementy będą widoczne*/
+.expanded > .menu-item {
+    display: block;
+}
+/*padding dla elementów menu*/
+.menu-logo-container,
+.menu-toggle {
+    display: block;
+    padding: 16px 32px;
+    font-size: 20px;
+}
+/*MENU END*/
+
+/*FOOTER START*/
+/*Wyśrodkowanie stopki*/
+.footer {
+    padding: 8px;
+    text-align: center;
+}
+/*FOOTER END*/
+
+/*Jumbotron START*/
+.jumbotron {
+    background-image: url("../img/jumbotron.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 5rem;
+    text-align: center;
+}
+.jumbotron-header {
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+.jumbotron-description {
+    font-size: 1.2rem;
+}
+/*Jumbotron END*/
+
+/*Listing START*/
+/*Nagłówek*/
+.list-heading,
+.list-description {
+    text-align: center;
+    margin: 16px 0;
+}
+/*Usunięcie dekoracji elementów listy (kropki na początku)*/
+.product-list {
+    list-style-type: none;
+}
+/*Margines i ramka wokół pojedynczego filmu*/
+.product-list-item {
+    margin-bottom: 16px;
+    display: flex;
+    border: 1px #6d6d6d solid;
+}
+/*Plakat - usuniecie paddingu*/
+.movFie-list-item-poster {
+    display: block;
+    max-width: 200px;
+}
+/*Karta filmu*/
+.product-list-item-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+}
+.product-list-item-content > * {
+    margin: 8px 0;
+}
+.product-list-item-title {
+    font-size: 1.6rem;
+}
+.product-list-item-rating {
+    font-size: 1.6rem;
+}
+
+.movie-list-item-image {
+    max-height: 300px;
+    max-width: 300px;
+}
+/*Listing END*/
+
+/*Responsive*/
+@media only screen and (min-width: 992px) {
+    /*Na ekranie powyżej 992px ukrywamy przycisk do rozwijania menu*/
+    .menu-toggle {
+        display: none;
+    }
+
+    /*Elementy menu nie powinny już zajmować całej szerokości, tylko być obok siebie*/
+    .menu-item {
+        display: block;
+        width: auto;
+        border-bottom: 0;
+    }
+
+    /*Kontener z logo powinien być rozciągnięty, a nawigacja po prawej stronie*/
+    .menu-logo-container {
+        flex: 1;
+    }
+
+    /*Na dużym ekranie ograniczamy szerokość do 960px*/
+    .main-content,
+    .menu {
+        align-self: center;
+        width: 960px;
+    }
+
+    /*product.html*/
+    /*Informacje o filmie w jednym rzędzie z odstępem od jumbotrona*/
+    .product-summary {
+        display: flex;
+        margin-top: 16px;
+        height: 400px;
+        width: 600px;
+    }
+    /*Mniejsza okładka na małych ekranach*/
+    .product-summary-cover {
+        object-fit: contain;
+        max-width: 200px;
+    }
+    /*Odstęp informacji o filmie od okładki*/
+    .product-summary-info {
+        margin-left: 16px;
+    }
+    /*Producent*/
+    .product-summary-producer {
+        color: #9e9e9e;
+        margin-bottom: 3px;
+    }
+    /*Odstępy między poszczególnymi informacjami*/
+    .product-summary-item {
+        margin: 3px 0;
+    }
+    /*Większy tytuł filmu*/
+    .product-summary-title {
+        font-size: 2rem;
+    }
+    /*Wyśrodkowanie głosowania*/
+    .product-rating-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 300px;
+    }
+
+    /*Wyśrodkowanie tekstu Twoja ocena*/
+    .product-rating-form > p {
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    /*Powiększenie i wyśrodkowanie średniej oceny*/
+    .product-rating-value {
+        font-size: 4rem;
+        text-align: center;
+    }
+    /*Styl dla przycisków z ocenami*/
+    .product-rating-button {
+        background-color: #ae74ec;
+        border: 0;
+        padding: 4px;
+        font-size: 1.6rem;
+        border-radius: 4px;
+        opacity: 0.8;
+    }
+    /*Usunięcie przezroczystości po najechaniu na przycisk*/
+    .product-rating-button:hover {
+        opacity: 1;
+    }
+    /*Odstępy między elementami w ramce z głosowaniem*/
+    .product-rating-container > * {
+        margin: 8px 0;
+    }
+    /*Ramka dla boxu z opisem*/
+    .product-section {
+        margin-top: 6px;
+        padding: 10px;
+        border: 1px #6d6d6d solid;
+    }
+    /*Ramka dla boxu z opisem*/
+    .product-section2 {
+        margin-top: 6px;
+        padding: 10px;
+    }
+
+    /*product.html END*/
+
+    /*Responsive product.html*/
+    @media only screen and (min-width: 992px) {
+        /*Dodajemy rozkład elastyczny, elementy będą wyświetlane w jednym wierszu*/
+        .product {
+            display: flex;
+            justify-content: space-between;
+        }
+        /*Przyciski powinny wyświetlać się obok siebie, bez zawijania wiersza*/
+        .product-rating-buttons {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        /*Większe odstępy między przyciskami*/
+        .product-rating-button {
+            font-size: 1.2rem;
+            margin: 0 4px;
+        }
+    }
+
+    /*error pages START*/
+    .error-container {
+        margin: 32px auto;
+    }
+    .error-container > * {
+        display: block;
+        text-align: center;
+    }
+    .error-header,
+    .error-icon {
+        font-size: 6rem;
+        margin: 16px 0;
+    }
+    /*error pages END*/
+
+    /*categories START*/
+    .list-border {
+        margin: auto;
+        list-style: none;
+    }
+    .list-border > li {
+        font-size: 1.2rem;
+        border: 1px #6d6d6d solid;
+        padding: 16px;
+        text-align: center;
+    }
+    /*categories END*/
+
+    /*add category START*/
+    /*textarea domyślnie nie dziedziczy czcionki z body*/
+    textarea {
+        font-family: inherit;
+    }
+    /*etykiety i inputy jeden pod drugim z odstępami po bokach*/
+    .mc-form {
+        display: flex;
+        flex-direction: column;
+        margin: 0 32px;
+    }
+    /*odstępy między etykietami i inputami*/
+    .mc-form > * {
+        margin-top: 8px;
+    }
+    /*większe inputy z paddingami*/
+    .mc-form > input,
+    .mc-form > textarea,
+    .mc-form > button {
+        font-size: 1.2rem;
+        color: black;
+        padding: 8px;
+    }
+    .mc-form > button {
+        margin-top: 16px;
+        background-color: #6d6d6d;
+        color: #7000EAFF;
+        border: none;
+    }
+
+    /*Belka z komunikatem*/
+    .notification-bar {
+        text-align: center;
+        background-color: #7000EAFF;
+        padding: 8px 0;
+    }
+    /*add category END*/
+
+    /*add product START*/
+    .mc-form,
+    .mc-form > input,
+    .mc-form > textarea,
+    .mc-form > button,
+    .mc-form > select { /*dodany selektor*/
+        font-size: 1.2rem;
+        color: #7000EAFF;
+        padding: 6px;
+    }
+    /*Większy checkbox*/
+    .mc-form > input[type=checkbox] {
+        transform: scale(1);
+        /*margin-left: 5px;*/
+    }
+    /*Biały kolor tekstu przy wyborze pliku*/
+    .mc-form > input[type=file] {
+        color: #ae74ec;
+    }
+    /*add product START*/
+
+    /*Tekst nad formularzem logowania*/
+    .mc-form-message {
+        color: #ae74ec;
+        text-align: center;
+    }
+
+    .registration-link {
+        text-align: center;
+        margin-top: 32px;
+    }
+}
