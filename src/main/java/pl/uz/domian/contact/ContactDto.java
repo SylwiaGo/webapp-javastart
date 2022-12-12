@@ -1,6 +1,6 @@
 package pl.uz.domian.contact;
 
-public class MessageInfoDto {
+public class ContactDto {
     private String name;
     private String email;
     private String text;

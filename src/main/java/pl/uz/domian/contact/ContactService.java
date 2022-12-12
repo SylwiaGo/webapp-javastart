@@ -1,26 +1,25 @@
 package pl.uz.domian.contact;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Import;
+import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MessageInfoService {
-    private final JavaMailSender mailSender;
+public class ContactService {
+    private final MailSender mailSender;
     @Value("${spring.mail.username}")
     private String owner;
 
-    public MessageInfoService(JavaMailSender mailSender) {
+    public ContactService(MailSender mailSender) {
         this.mailSender = mailSender;
     }
 
-    public JavaMailSender getMailSender() {
+    public MailSender getMailSender() {
         return mailSender;
     }
 
-    public void sendEmail(MessageInfoDto message) {
+    public void sendEmail(ContactDto message) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setTo(owner);
         simpleMailMessage.setFrom(owner);

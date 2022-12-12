@@ -1,35 +1,32 @@
 package pl.uz.web;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.Banner;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pl.uz.domian.contact.MessageInfoDto;
-import pl.uz.domian.contact.MessageInfoService;
+import pl.uz.domian.contact.ContactDto;
+import pl.uz.domian.contact.ContactService;
 
 @Controller
-public class MessageInfoController {
-    MessageInfoService messageInfoService;
+public class ContactController {
+    ContactService contactService;
 
     public static final String NOTIFICATION_ATTRIBUTE = "notification";
 
-    public MessageInfoController(MessageInfoService messageInfoService) {
-        this.messageInfoService = messageInfoService;
+    public ContactController(ContactService contactService) {
+        this.contactService = contactService;
     }
 
     @GetMapping("/contact")
     public String emialForm(Model model) {
-        model.addAttribute("message", new MessageInfoDto());
+        model.addAttribute("message", new ContactDto());
         return "contact";
     }
 
     @PostMapping("/send")
-    public String sendMessage(MessageInfoDto message, RedirectAttributes redirectAttributes) {
-        messageInfoService.sendEmail(message);
+    public String sendMessage(ContactDto message, RedirectAttributes redirectAttributes) {
+        contactService.sendEmail(message);
         redirectAttributes.addFlashAttribute(
                 NOTIFICATION_ATTRIBUTE,
                 "Your message has been sent");
