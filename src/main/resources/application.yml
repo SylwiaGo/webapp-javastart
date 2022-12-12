@@ -10,11 +10,12 @@ spring:
     properties:
       mail:
         debug: true
-      transport:
-        protocol: smtp
-      smtp:
-        auth: true
-        starttls:
-          enable: true
-          required: true
+        transport:
+          protocol: smtp
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
 
